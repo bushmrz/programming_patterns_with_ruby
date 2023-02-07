@@ -13,3 +13,18 @@ def method1(x)
 end
  
 method1(10)
+
+# 2 
+def method2(num)
+	min_dig = 10
+	num.digits.each {
+		|dig|
+		if min_dig>dig && dig % 2 != 0 
+			min_dig = dig 
+		end
+	}
+
+	puts "Min digit is #{min_dig}"
+end
+
+method2(5423786)
