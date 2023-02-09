@@ -1,4 +1,4 @@
-# 11 23 59
+# 11 59
 def find_unique(arr) 
   arr = arr.sort
   if arr[0]!=arr[1] then return arr[0] else return arr[-1]
@@ -27,5 +27,8 @@ def pos_list(arr)
 	puts "#{arr2}"
 end
 
-
+# 23
+def find_two_min(arr)
+  return arr.sort.take(2) 
+end
 
