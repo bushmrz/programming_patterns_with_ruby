@@ -1,8 +1,10 @@
 puts 'Hello  World'
 
 s = `whoami`
-puts 'Hello #{s}. Ur fav lang?'
-case 'java'
+puts "#{s}"
+puts 'Hello #{ARGV[0]}. Ur fav lang?'
+txtt = gets.chomp
+case txtt
 	when 'c++'
 		puts 'cool'
 	when 'java'
@@ -13,5 +15,11 @@ case 'java'
 		puts 'okay'
 	end
 
+puts 'Enter ruby command: '
+comRuby = gets.chomp
+system "ruby -e \'#{comRuby}\'"
 
+puts 'Enter OS command: '
+comSys = gets.chomp
+puts `#{comSys}`
 		
