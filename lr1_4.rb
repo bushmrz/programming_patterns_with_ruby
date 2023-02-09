@@ -37,9 +37,41 @@ def freqArr(arr)
   return arr.find_all{|x| x>0 && x<100 && arr.count(x)>2}.uniq
 end
 
-def f59(arr)
+def quadro_pos_list(arr)
   arr = freqArr(arr)
   return arr.map{|x| x**2}
 end
 
+puts "Choose program
+11 - find_unique
+23 - find_two_min
+35 - nearest_el
+47 - pos_list
+59 - quadro_pos_list"
 
+meth = gets.chomp.to_i
+
+case meth
+	when meth = 11
+		puts "Input array"
+		arr = gets.chomp.split(' ').map(&:to_i)
+		puts find_unique(arr)
+	when meth = 23
+		puts "Input array"
+		arr = gets.chomp.split(' ').map(&:to_i)
+  		puts find_two_min(arr)
+	when meth = 35
+		puts "Input array"
+		arr = gets.chomp.split(' ').map(&:to_i)
+		puts nearest_el(arr)
+	when meth = 47
+		puts "Input array"
+		arr = gets.chomp.split(' ').map(&:to_i)
+  		puts pos_list(arr)
+	when meth = 59
+		puts "Input array"
+		arr1 = gets.chomp.split(' ').map(&:to_i)
+		puts quadro_pos_list(arr)
+	else
+		puts "Error"
+end
