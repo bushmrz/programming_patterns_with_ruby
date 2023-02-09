@@ -1,4 +1,4 @@
-# 11 59
+# 11
 def find_unique(arr) 
   arr = arr.sort
   if arr[0]!=arr[1] then return arr[0] else return arr[-1]
@@ -27,8 +27,14 @@ def pos_list(arr)
 	puts "#{arr2}"
 end
 
-# 23
-def find_two_min(arr)
-  return arr.sort.take(2) 
+# 59
+def freqArr(arr)
+  return arr.find_all{|x| x>0 && x<100 && arr.count(x)>2}.uniq
 end
+
+def f59(arr)
+  arr = freqArr(arr)
+  return arr.map{|x| x**2}
+end
+
 
