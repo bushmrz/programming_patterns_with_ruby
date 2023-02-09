@@ -5,6 +5,11 @@ def find_unique(arr)
   end 
 end
 
+# 23
+def find_two_min(arr)
+  return arr.sort.take(2) 
+end
+
 # 35
 def nearest_el(arr,r)
 	arr1 = arr.map{|x| (x-r).abs }
