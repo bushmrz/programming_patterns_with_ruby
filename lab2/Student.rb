@@ -3,15 +3,15 @@ class Student
   attr_accessor :id, :last_name, :first_name, :second_name, :phone, :mail, :telegram, :git
 
   # конструктор
-  def initialize(last_name:, first_name:, second_name:, id: nil, phone: nil, mail: nil, telegram: nil, git: nil)
+  def initialize(last_name:, first_name:, second_name:, opt: {})
     self.last_name = last_name
     self.first_name = first_name
     self.second_name = second_name
-    self.id = id
-    self.phone = phone
-    self.mail = mail
-    self.telegram = telegram
-    self.git = git
+    self.id = opt[:id]
+    self.phone = opt[:phone]
+    self.mail = opt[:mail]
+    self.telegram = opt[:telegram]
+    self.git = opt[:git]
   end
 
   def to_s
