@@ -36,7 +36,7 @@ class Student
 
   # сеттеры
   def phone=(phone)
-    raise ArgumentError, "Incorrect value: phone=#{phone}! \t Correct format: +7 xxx xxx-xx-xx" if !phone.nil? && !Student.valid_phone?(phone)
+    raise ArgumentError, "Incorrect value: phone=#{phone}! \t Correct format: +7 xxx-xxx-xx-xx" if !phone.nil? && !Student.valid_phone?(phone)
 
     @phone = phone
   end
@@ -104,5 +104,12 @@ class Student
     if git == nil && !have_any_contact
       raise "Cant find git or other contacts for feedback :("
       end
+  end
+
+  def set_contacts(phone: nil, mail: nil, git: nil, telegram: nil)
+    self.phone = phone if phone!=nil
+    self.telegram = telegram if telegram!=nil
+    self.mail = mail if mail!=nil
+    self.git = git if git!=nil
   end
 end

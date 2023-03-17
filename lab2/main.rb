@@ -7,3 +7,9 @@ student3 = Student.new(last_name: "Иванов", first_name: "Иван", second
 puts student1
 puts student2
 puts student3
+
+student3.set_contacts(phone: "+7 999-999-99-99")
+student1.set_contacts(telegram: "@kust")
+
+puts student1
+puts student3
