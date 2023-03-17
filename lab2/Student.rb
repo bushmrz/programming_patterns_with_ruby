@@ -2,14 +2,14 @@ class Student
 
   # конструктор
   def initialize(last_name, first_name, second_name, id=nil, phone=nil, mail=nil, telegram=nil, git=nil )
-    @last_name = last_name
-    @first_name = first_name
-    @second_name = second_name
-    @id = id
-    @phone = phone
-    @mail = mail
-    @telegram = telegram
-    @git = git
+    set_lastname(last_name)
+    set_firstname(first_name)
+    set_secondname(second_name)
+    set_id(id)
+    set_phone(phone)
+    set_mail(mail)
+    set_telegram(telegram)
+    set_git(git)
   end
 
   def get_lastname
