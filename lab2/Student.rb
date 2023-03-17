@@ -13,6 +13,8 @@ class Student
     self.mail = opt[:mail]
     self.telegram = opt[:telegram]
     self.git = opt[:git]
+
+    validate()
   end
 
   # валидаторы
@@ -96,5 +98,11 @@ class Student
 
   def have_any_contact
     phone != nil || telegram  != nil || mail != nil || git != nil
+  end
+
+  def validate()
+    if git == nil && !have_any_contact
+      raise "Cant find git or other contacts for feedback :("
+      end
   end
 end
