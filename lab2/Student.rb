@@ -1,6 +1,7 @@
 class Student
 
-  attr_accessor :id, :last_name, :first_name, :second_name, :phone, :mail, :telegram, :git
+  attr_accessor :id, :last_name, :first_name, :second_name,  :mail, :telegram, :git
+  attr_reader :phone
 
   # конструктор
   def initialize(last_name:, first_name:, second_name:, opt: {})
@@ -14,6 +15,17 @@ class Student
     self.git = opt[:git]
   end
 
+  # валидатор номера телефона
+  def self.valid_phone?(phone)
+    phone.match(/^\+?[7,8] ?\(?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/)
+  end
+
+  # сеттер
+  def phone=(phone)
+    raise ArgumentError, "Incorrect value: phone=#{phone}! \t Correct format: +7 xxx xxx-xx-xx" if !phone.nil? && !Student.valid_phone?(phone)
+
+    @phone = phone
+  end
   def to_s
     if id != nil
       id_info = "ID: #{id}"
