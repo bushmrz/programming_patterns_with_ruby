@@ -23,7 +23,7 @@ class Student
   end
 
   def self.valid_name?(name)
-    name.match(/^[А-Я][а-я]+$/)
+    name.match(/^[А-ЯA-Z][а-яa-z]+$/)
   end
 
   def self.valid_account?(account)
@@ -112,4 +112,21 @@ class Student
     self.mail = mail if mail!=nil
     self.git = git if git!=nil
   end
+
+  def self.parse_str(string)
+    parse_info = string.tr(" ",'').split(";").
+      map{ |x|  x1, x2  = x.split(":")
+      [x1.to_sym, x2] }.to_h
+
+
+    puts parse_info
+
+    Student.new(
+      last_name: parse_info[:last_name],
+      first_name: parse_info[:first_name],
+      second_name: parse_info[:second_name],
+      opt: parse_info
+    )
+  end
+
 end
