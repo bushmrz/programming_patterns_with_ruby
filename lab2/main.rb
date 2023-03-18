@@ -15,5 +15,5 @@ puts student4
 # student5 = Student_short.from_student(student4)
 # puts student5
 
-student6 = Student_short.parse_str(12, "fio: Шнайдер И.А.; git: @darling; mail: hater@hate.ru")
+student6 = Student_short.parse_str(12, "fio: Шнайдер.И.А; git: @darling; mail: hater@hate.ru")
 puts student6

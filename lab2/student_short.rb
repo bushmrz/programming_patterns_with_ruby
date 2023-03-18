@@ -1,11 +1,19 @@
 # frozen_string_literal: true
 require_relative './Student.rb'
-class Student_short < Student
-  attr_reader :id, :fio, :git, :mail
+require_relative './super_abstract_student.rb'
+class Student_short < SuperAbstractStudent
+
+  public_class_method :new
+  attr_accessor :id, :fio, :git, :mail
 
   def initialize(id:, fio:, git:, mail:)
     @id = id
     @fio = fio
+
+    fio_components = fio.split(".")
+    self.last_name = fio_components[0]
+    self.first_name = fio_components[1]
+    self.second_name = fio_components[2]
     self.git = git
     self.mail = mail
   end
@@ -13,7 +21,7 @@ class Student_short < Student
   def self.from_student(student)
     Student_short.new(
       id: student.id,
-      fio: "#{student.last_name}.#{student.first_name.upcase[0]}.#{student.second_name.upcase[0]}.",
+      fio: "#{student.last_name} #{student.first_name} #{student.second_name}",
       git: student.git,
       mail: student.mail
     )
@@ -31,14 +39,11 @@ class Student_short < Student
       mail: parse_info[:mail]
     )
   end
+
+  def contacts_info
+    "Email: #{email}"
+  end
   def to_s
-    if id != nil
-      id_info = "ID: #{id}"
-      else id_info = ""
-    end
-
-    fio_info = "ФИО: #{fio}"
-
-    [id_info, fio_info,"Гит: #{git}", "Почта: #{mail}"].join("\n")
+    ["#{id_info}", "#{fio_info}","Гит: #{git}", "Почта: #{mail}"].join("\n")
   end
 end
