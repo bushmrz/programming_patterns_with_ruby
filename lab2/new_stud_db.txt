@@ -1,0 +1,3 @@
+fio: Шнайдер/Ия/Александровна;id: 9898; phone: +79897776655; telegram: @darlinmrz; mail: sixzerosixbae@vk.com; git: @bushokmrz;
+fio: Киц/Олег/Валерьевич;id: 99; phone: +79009090900;
+fio: Test/Test/Test; mail: bulba@bulba.com; git: @bulba;

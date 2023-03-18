@@ -59,18 +59,16 @@ class Student < SuperAbstractStudent
 
   def to_s
 
-    fio_full = "ФИО: #{last_name} #{first_name} #{second_name}"
-
+    fio_full = "fio: #{last_name}/#{first_name}/#{second_name};"
+    all_contacts_info = ""
     if have_any_contact
-      all_contacts_info = "Контакты:"
-
-      all_contacts_info += phone == nil ? "" : "\n\tТелефон: #{phone}"
-      all_contacts_info += telegram == nil ? "" : "\n\tТелеграм: #{telegram}"
-      all_contacts_info += mail == nil ? "" : "\n\tПочта: #{mail}"
-      all_contacts_info += git == nil ? "" :  "\n\tГит: #{git}"
+      all_contacts_info += phone == nil ? "" : " phone: #{phone};"
+      all_contacts_info += telegram == nil ? "" : " telegram: #{telegram};"
+      all_contacts_info += mail == nil ? "" : " mail: #{mail};"
+      all_contacts_info += git == nil ? "" :  " git: #{git};"
     end
 
-    ["#{id_info}", fio_full, all_contacts_info].join("\n")
+    [fio_full, "#{id_info}", all_contacts_info].join("")
   end
 
   def have_any_contact
@@ -95,28 +93,28 @@ class Student < SuperAbstractStudent
       map{ |x|  x1, x2  = x.split(":")
       [x1.to_sym, x2] }.to_h
 
-    raise "Incorrect string" if parse_info[:last_name] == nil || parse_info[:first_name] == nil || parse_info[:second_name] == nil
-
+    raise "Incorrect string" if parse_info[:fio] == nil
+    fio_split = parse_info[:fio].split("/")
     Student.new(
-      last_name: parse_info[:last_name],
-      first_name: parse_info[:first_name],
-      second_name: parse_info[:second_name],
+      last_name: fio_split[0],
+      first_name: fio_split[1],
+      second_name: fio_split[2],
       opt: parse_info
     )
   end
 
   def contacts_info
     if phone != nil
-      "Телефон: #{phone}"
+      "phone: #{phone}"
     elsif mail != nil
-        "Почта: #{mail}"
+        "mail: #{mail}"
       elsif telegram != nil
-          "Телеграм: #{telegram}"
+          "telegram: #{telegram}"
         else ""
       end
   end
   def getInfo
-    "ФИО: #{fio_info} \t Гит: #{git} \t #{contacts_info}"
+    "fio: #{fio_info} \t git: #{git} \t #{contacts_info}"
   end
 
 end

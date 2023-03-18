@@ -38,7 +38,7 @@ class SuperAbstractStudent
 
   def id_info
     if id != nil
-      "ID: #{id}"
+      "id: #{id};"
     else ""
     end
   end
