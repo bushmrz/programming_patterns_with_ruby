@@ -1,0 +1,3 @@
+last_name: Шнайдер; first_name: Ия; second_name: Александровна; id: 9898; mail: sixzerosixbae@vk.com; telegram: @darlinmrz; git: @bushokmrz
+last_name: Киц; first_name: Олег; second_name: Валерьевич; id: "99"; phone: +79009090900
+last_name: Test; first_name: Test; second_name: Test; git: @bulba; mail: bulba@bulba.com

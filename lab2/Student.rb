@@ -116,7 +116,7 @@ class Student < SuperAbstractStudent
       end
   end
   def getInfo
-    "#{fio_info} \t Гит: #{git} \t #{contacts_info}"
+    "ФИО: #{fio_info} \t Гит: #{git} \t #{contacts_info}"
   end
 
 end

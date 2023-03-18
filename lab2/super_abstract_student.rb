@@ -33,7 +33,7 @@ class SuperAbstractStudent
   end
 
   def fio_info
-    "ФИО: #{last_name} #{first_name.upcase[0]}.#{second_name.upcase[0]}"
+    "#{last_name} #{first_name.upcase[0]}.#{second_name.upcase[0]}"
   end
 
   def id_info

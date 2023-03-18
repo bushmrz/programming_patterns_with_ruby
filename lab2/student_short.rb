@@ -44,6 +44,6 @@ class Student_short < SuperAbstractStudent
     "Email: #{email}"
   end
   def to_s
-    ["#{id_info}", "#{fio_info}","Гит: #{git}", "Почта: #{mail}"].join("\n")
+    ["#{id_info}", "ФИО: #{fio_info}","Гит: #{git}", "Почта: #{mail}"].join("\n")
   end
 end
