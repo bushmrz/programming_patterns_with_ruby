@@ -118,8 +118,8 @@ class Student
       map{ |x|  x1, x2  = x.split(":")
       [x1.to_sym, x2] }.to_h
 
+    raise "Incorrect string" if parse_info[:last_name] == nil || parse_info[:first_name] == nil || parse_info[:second_name] == nil
 
-    puts parse_info
 
     Student.new(
       last_name: parse_info[:last_name],
