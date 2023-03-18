@@ -120,13 +120,29 @@ class Student
 
     raise "Incorrect string" if parse_info[:last_name] == nil || parse_info[:first_name] == nil || parse_info[:second_name] == nil
 
-
     Student.new(
       last_name: parse_info[:last_name],
       first_name: parse_info[:first_name],
       second_name: parse_info[:second_name],
       opt: parse_info
     )
+  end
+
+  def get_some_contact
+    if phone != nil
+      "Телефон: #{phone}"
+    elsif mail != nil
+        "Почта: #{mail}"
+      elsif telegram != nil
+          "Телеграм: #{telegram}"
+        else ""
+      end
+  end
+  def getInfo
+    stud_fio = last_name + "." + first_name[0] + "." + second_name[0] + "."
+    contact = get_some_contact
+
+    "#{stud_fio} \t Гит: #{git} \t #{contact}"
   end
 
 end

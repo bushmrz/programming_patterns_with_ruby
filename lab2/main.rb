@@ -8,6 +8,5 @@ require_relative './Student.rb'
 # puts student2
 # puts student3
 
-student4 = Student.parse_str("last_name: Test; first_name: Test; second_name: Test; git: @bulba")
-
-puts student4
+student4 = Student.parse_str("last_name: Test; first_name: Test; second_name: Test; git: @bulba; telegram: @bulba228")
+puts student4.getInfo
