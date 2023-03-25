@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require_relative './Student.rb'
 require_relative './super_abstract_student.rb'
-class Student_short < SuperAbstractStudent
+class StudentShort < SuperAbstractStudent
 
   public_class_method :new
   attr_accessor :id, :fio, :git, :mail
@@ -19,7 +19,7 @@ class Student_short < SuperAbstractStudent
   end
 
   def self.from_student(student)
-    Student_short.new(
+    StudentShort.new(
       id: student.id,
       fio: "#{student.last_name} #{student.first_name} #{student.second_name}",
       git: student.git,
@@ -32,7 +32,7 @@ class Student_short < SuperAbstractStudent
       map{ |x|  x1, x2  = x.split(":")
       [x1.to_sym, x2] }.to_h
 
-    Student_short.new(
+    StudentShort.new(
       id: id,
       fio: parse_info[:fio],
       git: parse_info[:git],
