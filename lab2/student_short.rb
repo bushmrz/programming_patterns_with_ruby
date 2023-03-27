@@ -10,7 +10,7 @@ class StudentShort < SuperAbstractStudent
     @id = id
     @fio = fio
 
-    fio_components = fio.split(".")
+    fio_components = fio.split("/")
     self.last_name = fio_components[0]
     self.first_name = fio_components[1]
     self.second_name = fio_components[2]
@@ -21,7 +21,7 @@ class StudentShort < SuperAbstractStudent
   def self.from_student(student)
     StudentShort.new(
       id: student.id,
-      fio: "#{student.last_name} #{student.first_name} #{student.second_name}",
+      fio: "#{student.last_name}/#{student.first_name}/#{student.second_name}",
       git: student.git,
       mail: student.mail
     )

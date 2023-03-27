@@ -16,6 +16,7 @@ class DataTable
     @data[0].size
   end
 
+
 end
 
 # тестовые данные
