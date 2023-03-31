@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require_relative './Student.rb'
 require_relative './super_abstract_student.rb'
 class StudentShort < SuperAbstractStudent
