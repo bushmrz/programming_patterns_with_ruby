@@ -5,7 +5,6 @@ require_relative '../templates/default_data_constructor.rb'
 class DataListStudentShort < DataList
   attr_accessor :data_list
 
-  attr_accessor :filtered_name, :constructor
   def initialize(data:, filtered_name:,constructor:)
     super(data: data)
     self.filtered_name = filtered_name
@@ -18,4 +17,7 @@ class DataListStudentShort < DataList
   def get_data
     constructor.action( data_list,get_names)
   end
+
+  private
+  attr_accessor :filtered_name, :constructor
 end
