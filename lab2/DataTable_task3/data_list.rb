@@ -1,7 +1,7 @@
 class DataList
   attr_accessor :data_list, :selected_id
-  def initialize(el)
-    self.data_list =  el.sort_by(&:id)
+  def initialize(data:)
+    self.data_list =  data.sort_by(&:id)
     self.selected_id = []
   end
 
