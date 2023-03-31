@@ -1,17 +1,17 @@
 class DataList
-  # attr_accessor :data_list, :selected_elem
-  def initialize(data)
-    @data_list = data.sort_by(&:id)
-    @selected_id = []
+  attr_accessor :data_list, :selected_id
+  def initialize(el)
+    self.data_list =  el.sort_by(&:id)
+    self.selected_id = []
   end
 
   def select(number)
-    element = @data_list[number-1]
-    @selected_id << element.id
+    element = self.data_list[number-1]
+    self.selected_id << element.id
   end
 
   def get_selected
-    @selected_id
+    self.selected_id
   end
 
   def get_names

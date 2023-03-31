@@ -41,7 +41,7 @@ class StudentShort < SuperAbstractStudent
   end
 
   def contacts_info
-    "Email: #{email}"
+    "Email: #{mail}"
     "Гит: #{git}"
   end
   def to_s

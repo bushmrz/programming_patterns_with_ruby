@@ -1,6 +1,7 @@
 require_relative './Student.rb'
 require_relative './student_short.rb'
 require_relative './DataTable_task3//data_list.rb'
+require_relative './DataTable_task3//data_list_student_short.rb'
 def read_from_txt(filename)
   File.read(filename)
       .split("\n")
@@ -21,16 +22,16 @@ end
 # puts read_from_txt("lab2/new_stud_db.txt")
 
 stud1 = Student.new(last_name: 'Aa', first_name: 'Oo', second_name: 'Ee',opt: { id:'28', git:'@elelelel', mail: 'ewewewe@mail.ru' })
-stud2 = Student.new(last_name: 'Aa', first_name: 'Oo', second_name: 'Ee',opt: { id:'2', git:'@elelelel', mail: 'ewewewe@mail.ru' })
-stud3 = Student.new(last_name: 'Aa', first_name: 'Oo', second_name: 'Ee',opt: { id:'8', git:'@elelelel', mail: 'ewewewe@mail.ru' })
+stud2 = Student.new(last_name: 'Тест', first_name: 'Oo', second_name: 'Ee',opt: { id:'2', git:'@lll', mail: 'ewwe@mail.ru' })
+stud3 = Student.new(last_name: 'Ддд', first_name: 'Ъъъ', second_name: 'Ee',opt: { id:'8', git:'@eeee', mail: 'ewewewe@mail.ru' })
 stud4 = Student.new(last_name: 'Aa', first_name: 'Oo', second_name: 'Ee',opt: { id:'35', git:'@elelelel', mail: 'ewewewe@mail.ru' })
 
-stud1 = StudentShort.from_student(stud1)
-stud2 = StudentShort.from_student(stud2)
-stud3 = StudentShort.from_student(stud3)
-stud4 = StudentShort.from_student(stud4)
+stud_list = [stud1, stud2, stud3, stud4].map { |student| StudentShort.from_student(student)}
 
-stud_list = DataList.new([stud1, stud2, stud3, stud4])
-stud_list.select(3)
-stud_list.select(4)
-puts stud_list.get_selected
+datalist = DataListStudentShort.new(stud_list)
+datalist.select(3)
+datalist.select(4)
+puts datalist.get_selected
+
+puts datalist.get_names
+puts datalist.get_data.inspect
