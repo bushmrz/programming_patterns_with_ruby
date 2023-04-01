@@ -2,7 +2,7 @@ require_relative './Student.rb'
 require_relative './student_short.rb'
 require_relative './DataTable_task3//data_list.rb'
 require_relative './DataTable_task3//data_list_student_short.rb'
-require_relative './templates/default_data_constructor.rb'
+require_relative './templates/data_constructor.rb'
 require_relative './templates/base_filter.rb'
 require_relative './work_with_txt.rb'
 

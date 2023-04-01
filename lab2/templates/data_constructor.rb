@@ -1,8 +1,8 @@
 class DataConstructor
-  def construct(values)
+  def construct(values, attrs)
     raise "Method dont realize yet"
   end
-  def action(values)
+  def action(values, attrs)
     raise "Method dont realize yet"
   end
 end
