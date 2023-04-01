@@ -1,6 +1,5 @@
 require_relative './data_list.rb'
 require_relative './data_table.rb'
-require_relative '../templates/filters.rb'
 require_relative '../templates/default_data_constructor.rb'
 class DataListStudentShort < DataList
   attr_accessor :data_list

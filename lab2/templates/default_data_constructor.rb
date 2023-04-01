@@ -2,8 +2,11 @@ class DataConstructor
   def construct(values)
     raise "Method dont realize yet"
   end
+  def action(values)
+    raise "Method dont realize yet"
+  end
 end
-class DefaultDataConstructor
+class DefaultDataConstructor<DataConstructor
   def construct(values, attrs)
     (0...values.size).map { |item_index|
       (0...attrs.size + 1).map { |name_index|
@@ -13,16 +16,8 @@ class DefaultDataConstructor
       }
     }
   end
-end
-
-class BaseDataConstruct
-  attr_accessor :constructor
-
-  def initialize(constructor:)
-    self.constructor = constructor
-  end
 
   def action(values, attrs)
-    constructor.construct(values, attrs)
+    construct(values, attrs)
   end
 end
