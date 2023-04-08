@@ -124,9 +124,10 @@ class Student < SuperAbstractStudent
 
   def self.from_hash(hash)
 
-    raise ArgumentError,"Missing req fields" unless hash.key?(:fio_full)
-    fio = hash[:fio_full].split(' ')
-    hash.delete(:fio_full)
-    Student.new(last_name: fio[0], first_name: fio[1], second_name: fio[2], opt: hash)
+    raise ArgumentError,"Missing req fields" unless hash.key?(:last_name) && hash.key?(:first_name) && hash.key?(:second_name)
+    last_name = hash.delete(:last_name)
+    first_name = hash.delete(:first_name)
+    second_name = hash.delete(:second_name)
+    Student.new(last_name: last_name, first_name: first_name, second_name: second_name, opt: hash)
   end
 end

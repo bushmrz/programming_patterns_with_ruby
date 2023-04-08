@@ -67,6 +67,6 @@ studlist = StudentListJSON.new()
 
 studlist.readFile('./lab2/studentsRead.json')
 puts(studlist.students)
-studlist.add_student(Student.from_str('fio:Воровской Вор Ворикович'))
+studlist.add_student(Student.parse_str('fio: Воровской/Вор/Ворикович; git:@krisa'))
 puts(studlist.students)
 studlist.writeFile(studlist,'./lab2/studentsWrite.json')
