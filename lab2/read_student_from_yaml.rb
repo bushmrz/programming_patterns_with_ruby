@@ -1,23 +1,23 @@
-require 'json'
+require 'yaml'
 require_relative 'Student'
 require_relative './converter.rb'
-class StudentListJSON
+class StudentListYAML
   public
   attr_accessor :students, :gen_id
 
-  def readFile(filename)
-    file_content = File.read(filename)
-    hashed_students = JSON.parse(file_content, {symbolize_names: true})
+  def read_file(file_path)
+    file_content = File.read(file_path)
+    hashed_students = YAML.safe_load(file_content).map{ |h| h.transform_keys(&:to_sym)}
     hashed_students.each do |stud|
-      puts(stud)
       students << Student.from_hash(stud)
     end
     next_id
   end
 
-  def writeFile(hash, filename)
-    File.open(filename, 'w') do |file|
-      file.write(JSON.pretty_generate(hash))
+  def write_file(hash, file_path)
+    puts(hash)
+    File.open(file_path, 'w') do |file|
+      file.write(YAML.dump(hash.map{ |h| h.transform_keys(&:to_s)}))
     end
   end
 
@@ -61,13 +61,12 @@ class StudentListJSON
   def next_id
     self.gen_id=students.max_by(&:id).id + 1
   end
-
 end
 
-studlist = StudentListJSON.new()
-
-studlist.readFile('./lab2/studentsRead.json')
+studlist = StudentListYAML.new()
+studlist.read_file('./lab2/studentsRead.yaml')
+studlist.add_student(Student.from_str('fio:Ежанов/Еж/Ежевич; git:@qwertyminer'))
+studlist.write_file(studlist.students.map(&:to_hash), './lab2/studentsWrite.yaml')
+puts("DON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+studlist.read_file('./lab2/studentsWrite.yaml')
 puts(studlist.students)
-studlist.add_student(Student.parse_str('fio: Воровской/Вор/Ворикович; git:@krisa'))
-puts(studlist.students)
-studlist.writeFile(studlist,'./lab2/studentsWrite.json')

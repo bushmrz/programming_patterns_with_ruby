@@ -1,5 +1,6 @@
 require 'json'
 require_relative './super_abstract_student.rb'
+require_relative './converter.rb'
 class Student < SuperAbstractStudent
 
   public_class_method :new
