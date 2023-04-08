@@ -16,12 +16,12 @@ class ConverterTxt < Converter
 
   def convert_read(data)
     result = []
-    parse_info = string.tr(" ",'').split(";").
+    parse_info = data.tr(" ",'').split(";").
       map{ |x|  x1, x2  = x.split(":")
       [x1.to_sym, x2] }.to_h
 
     raise "Incorrect string" if parse_info[:fio] == nil
-    hash =  parse_info.map{ |x |  x[:fio].split("/"); x.parse_info  }
+    hash =  parse_info.map{ |x |  x[:fio].split("/"); x  }
     result << hash
 
     result

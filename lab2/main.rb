@@ -6,6 +6,7 @@ require_relative './DataTable_task3//data_list_student_short.rb'
 require_relative './templates/data_constructor.rb'
 require_relative './templates/base_filter.rb'
 require_relative './student_list_txt.rb'
+require_relative './converter.rb'
 
 std_list_txt = StudentListTxt.new()
 

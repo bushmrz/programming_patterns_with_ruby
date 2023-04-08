@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class SuperAbstractStudent
 
   private_class_method :new

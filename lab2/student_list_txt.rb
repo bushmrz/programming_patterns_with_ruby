@@ -3,7 +3,7 @@ require_relative './student_short.rb'
 require_relative './DataTable_task3/data_list_student_short.rb'
 require_relative './converter.rb'
 class StudentListTxt
-  attr_accessor :students, :unic_id
+  attr_accessor :students, :unic_id, :typer
 
   def initialize()
     self.students = []
@@ -13,18 +13,15 @@ class StudentListTxt
   def read_from_txt(filename)
     raise ArgumentError.new("File not found #{filename}") unless File.file?(filename)
 
-      File.read(filename)
-          .split("\n")
-          .map { |txt| students << Student.parse_str(txt) }
+    typer = ConverterTxt.new
+    hash_students = typer.convert_read(File.read(filename))
+    self.students = hash_students.map{|h| Student.from_hash(h)}
+    next_id
   end
 
   def write_to_txt(filename)
-    File.open(filename, 'w') { |file|
-      file.write(
-        students.map { |el| el.to_s }
-                .join("\n")
-      )
-    }
+    hash_students = students.map(&:to_hash)
+    File.write(filename, typer.convert_write(hash_students))
   end
 
   def get_by_id(id)
