@@ -21,4 +21,8 @@ class DataList
   def get_data
     raise "Method doesn't realize yet"
   end
+
+  def append(new_data)
+    @data_list.append(new_data)
+  end
 end

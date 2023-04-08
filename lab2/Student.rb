@@ -114,7 +114,10 @@ class Student < SuperAbstractStudent
       end
   end
   def getInfo
-    "fio: #{fio_info} \t git: #{git} \t #{contacts_info}"
+    if id == nil
+      "fio: #{fio_info} \t git: #{git} \t #{contacts_info}"
+    else
+      "id: #{id} \t fio: #{fio_info} \t git: #{git} \t #{contacts_info}"
+    end
   end
-
 end

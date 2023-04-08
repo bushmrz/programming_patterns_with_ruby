@@ -1,0 +1,3 @@
+fio: Шнайдер/Ия/Александровна;id: 0; telegram: @darlinmrz; mail: sixzerosixbae@vk.com; git: @bushokmrz;
+fio: Test/Test/Test;id: 2; mail: bulba@bulba.com; git: @bulba;
+fio: Tst/Tst/Tst;id: 3; mail: bul@bul.com; git: @bul;

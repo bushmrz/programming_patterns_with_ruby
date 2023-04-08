@@ -4,9 +4,17 @@ require_relative '../templates/data_constructor.rb'
 class DataListStudentShort < DataList
   attr_accessor :data_list
 
-  def initialize(data:, filtered_name:,constructor:)
+  def initialize(data:)
     super(data: data)
+    self.filtered_name
+    self.constructor
+  end
+
+  def filter_objs(filtered_name)
     self.filtered_name = filtered_name
+  end
+
+  def constuct_objs(constructor)
     self.constructor = constructor
   end
 

@@ -1,3 +1,4 @@
-fio:Шнайдер/Ия/Александровна; id: 9898; mail: sixzerosixbae@vk.com; telegram: @darlinmrz; git: @bushokmrz
-fio:Киц/Олег/Валерьевич; id: 99; phone: +79009090900
-fio:Test/Test/Test; git: @bulba; mail: bulba@bulba.com
+fio:Шнайдер/Ия/Александровна; id: 0; mail: sixzerosixbae@vk.com; telegram: @darlinmrz; git: @bushokmrz
+fio:Киц/Олег/Валерьевич; id: 1; phone: +79009090900
+fio:Test/Test/Test; id: 2; git: @bulba; mail: bulba@bulba.com
+fio:Tst/Tst/Tst; id: 3; git: @bul; mail: bul@bul.com
