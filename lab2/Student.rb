@@ -1,3 +1,4 @@
+require 'json'
 require_relative './super_abstract_student.rb'
 class Student < SuperAbstractStudent
 
@@ -119,5 +120,13 @@ class Student < SuperAbstractStudent
     else
       "id: #{id} \t fio: #{fio_info} \t git: #{git} \t #{contacts_info}"
     end
+  end
+
+  def self.from_hash(hash)
+
+    raise ArgumentError,"Missing req fields" unless hash.key?(:fio_full)
+    fio = hash[:fio_full].split(' ')
+    hash.delete(:fio_full)
+    Student.new(last_name: fio[0], first_name: fio[1], second_name: fio[2], opt: hash)
   end
 end

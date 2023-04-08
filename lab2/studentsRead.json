@@ -1,0 +1,55 @@
+[
+
+  {
+
+    "fio": "Ожог Игорь Иванович",
+
+    "id": 1,
+
+    "mail": "ozhog@mail.ru",
+
+    "git": "@ozhog"
+
+  },
+
+  {
+
+    "fio": "Шнайдер Ий Альнордович",
+
+    "id": 2,
+
+    "phone": "89054037777",
+
+    "git": "@bro"
+
+  },
+
+  {
+
+    "fio": "Сорока Кот Собакин",
+
+    "id": 3,
+
+    "telegram": "@bbb",
+
+    "git": "@meeeh"
+
+  },
+
+  {
+
+    "fio": "Кот Файл Ридминович",
+
+    "id": 4,
+
+    "phone": "+77772280966",
+
+    "telegram": "@catlover7",
+
+    "mail":"skiiii@kubsu.ru",
+
+    "git": "@qwertythefish"
+
+  }
+
+]

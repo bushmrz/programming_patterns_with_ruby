@@ -36,6 +36,9 @@ class SuperAbstractStudent
     "#{last_name} #{first_name.upcase[0]}.#{second_name.upcase[0]}"
   end
 
+  def full_fio
+    "#{last_name} #{first_name}.#{second_name}"
+  end
   def id_info
     if id != nil
       "id: #{id};"

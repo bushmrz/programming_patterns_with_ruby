@@ -1,3 +1,4 @@
+require 'json'
 require_relative './Student.rb'
 require_relative './student_short.rb'
 require_relative './DataTable_task3//data_list.rb'
