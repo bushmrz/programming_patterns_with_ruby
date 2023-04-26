@@ -131,4 +131,5 @@ class Student < SuperAbstractStudent
     second_name = hash.delete(:second_name)
     Student.new(last_name: last_name, first_name: first_name, second_name: second_name, opt: hash)
   end
+
 end
