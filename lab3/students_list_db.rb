@@ -1,10 +1,10 @@
 class Students_list_DB
 
   #freeze не позволяет изменять имя
-  db_name = 'students_db.db'.freeze
+  DB_NAME = 'students_db.db'.freeze
 
   def initialize(db_name)
-    @db = SQLite3::Database.new(db_name)
+    @db = SQLite3::Database.new(DB_NAME)
   end
 
   def close
