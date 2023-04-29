@@ -1,9 +1,33 @@
-class TabStudents
-  include Glimmer::LibUI::CustomControl
-  require 'glimmer-dsl-libui'
+require 'glimmer-dsl-libui'
 
-  body {
-    horizontal_box {
+class TabStudents
+  include Glimmer
+
+  def initialize
+    @controller = TabStudentsController.new(self)
+  end
+
+  def sort_column(col_index)
+    rows = @table.cell_rows
+
+    # Сортировка строк в выбранном столбце
+    sorted_rows = rows.sort_by { |row|
+      if row[col_index]!=nil
+        row[col_index]
+      else
+        row[col_index]=''
+        row[col_index]
+      end}
+
+    # Отображение сортировки в интерфейсе
+    @table.cell_rows = sorted_rows
+  end
+  def on_create
+
+  end
+
+  def create
+    root_container = horizontal_box {
       # Секция 1
       vertical_box {
         stretchy false
@@ -109,6 +133,7 @@ class TabStudents
             end
           }
 
+
           # button_update.enable
           # button_create.enable
           # button_edit.enable
@@ -117,30 +142,9 @@ class TabStudents
 
         }
     }
-  }
 
-  # def edit_row
-  #   row = @table.selected_row
-  #   if row
-  #     @table.editable = true
-  #     @actions.children[0].disable
-  #     @actions.children[1].enable
-  #   end
-  # end
+    on_create
+    root_container
 
-  def sort_column(col_index)
-    rows = @table.cell_rows
-
-    # Сортировка строк в выбранном столбце
-    sorted_rows = rows.sort_by { |row|
-      if row[col_index]!=nil
-        row[col_index]
-      else
-        row[col_index]=''
-        row[col_index]
-      end}
-
-    # Отображение сортировки в интерфейсе
-    @table.cell_rows = sorted_rows
   end
 end
