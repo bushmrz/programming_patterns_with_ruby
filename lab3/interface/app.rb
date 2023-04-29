@@ -1,5 +1,6 @@
 class TabStudents
   include Glimmer::LibUI::CustomControl
+  require 'glimmer-dsl-libui'
 
   body {
     horizontal_box {
@@ -64,8 +65,13 @@ class TabStudents
           editable false
 
 
-          cell_rows [['Шнайдер И.А.', 'buuushmrz', '+79006660111'], ['Хахук Р.Н.', 'delta_null', '+79183939494'],
+          data = [['Шнайдер И.А.', 'buuushmrz', '+79006660111'], ['Хахук Р.Н.', 'delta_null', '+79183939494'],
                      ['Худокормов Д.А.', 'KittenQZ', nil], ['Базовый Ю.Т.', nil, 'example@ex.ex']]
+          cell_rows data
+
+          # data.each_with_index do |header, index|
+          #   puts header,index
+          # end
         }
 
         @pages = horizontal_box {
@@ -77,8 +83,50 @@ class TabStudents
           end
         }
       }
+
+        @actions = vertical_box {
+
+          stretchy false
+
+          button_edit = button('Редактировать') {
+            on_clicked do
+              edit_row
+            end
+          }
+          button_update = button('Обновить') {
+            on_clicked do
+              update_row
+            end
+          }
+          button_create = button('Создать') {
+            on_clicked do
+              create_row
+            end
+          }
+          button_delete = button('Удалить') {
+            on_clicked do
+              delete_row
+            end
+          }
+
+          # button_update.enable
+          # button_create.enable
+          # button_edit.enable
+          # button_delete.disable
+
+
+        }
     }
   }
+
+  # def edit_row
+  #   row = @table.selected_row
+  #   if row
+  #     @table.editable = true
+  #     @actions.children[0].disable
+  #     @actions.children[1].enable
+  #   end
+  # end
 
   def sort_column(col_index)
     rows = @table.cell_rows
