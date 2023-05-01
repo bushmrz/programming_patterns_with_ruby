@@ -1,28 +1,9 @@
-require 'json'
-require 'yaml'
+require './lab3/all_data/db_data_source'
+require './models/student'
+require './models/student_short'
+require './all_data/data_list_student_short'
 
-class Student
-  attr_accessor :id, :name, :age, :email
-
-  def initialize(id, name, age, email)
-    @id = id
-    @name = name
-    @age = age
-    @email = email
-  end
-end
-
-class StudentShort
-  attr_accessor :id, :name
-
-  def initialize(id, name)
-    @id = id
-    @name = name
-  end
-end
-
-
-class StudentList
+class DBSourceAdapter
   def initialize(source)
     @source = source
     @students = adapter.get_students
