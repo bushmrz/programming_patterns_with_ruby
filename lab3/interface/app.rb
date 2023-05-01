@@ -1,33 +1,9 @@
-require 'glimmer-dsl-libui'
-
 class TabStudents
-  include Glimmer
+  include Glimmer::LibUI::CustomControl
+  require 'glimmer-dsl-libui'
 
-  def initialize
-    @controller = TabStudentsController.new(self)
-  end
-
-  def sort_column(col_index)
-    rows = @table.cell_rows
-
-    # Сортировка строк в выбранном столбце
-    sorted_rows = rows.sort_by { |row|
-      if row[col_index]!=nil
-        row[col_index]
-      else
-        row[col_index]=''
-        row[col_index]
-      end}
-
-    # Отображение сортировки в интерфейсе
-    @table.cell_rows = sorted_rows
-  end
-  def on_create
-
-  end
-
-  def create
-    root_container = horizontal_box {
+  body {
+    horizontal_box {
       # Секция 1
       vertical_box {
         stretchy false
@@ -90,7 +66,7 @@ class TabStudents
 
 
           data = [['Шнайдер И.А.', 'buuushmrz', '+79006660111'], ['Хахук Р.Н.', 'delta_null', '+79183939494'],
-                     ['Худокормов Д.А.', 'KittenQZ', nil], ['Базовый Ю.Т.', nil, 'example@ex.ex']]
+                  ['Худокормов Д.А.', 'KittenQZ', nil], ['Базовый Ю.Т.', nil, 'example@ex.ex']]
           cell_rows data
 
           # data.each_with_index do |header, index|
@@ -108,43 +84,63 @@ class TabStudents
         }
       }
 
-        @actions = vertical_box {
+      @actions = vertical_box {
 
-          stretchy false
+        stretchy false
 
-          button_edit = button('Редактировать') {
-            on_clicked do
-              edit_row
-            end
-          }
-          button_update = button('Обновить') {
-            on_clicked do
-              update_row
-            end
-          }
-          button_create = button('Создать') {
-            on_clicked do
-              create_row
-            end
-          }
-          button_delete = button('Удалить') {
-            on_clicked do
-              delete_row
-            end
-          }
-
-
-          # button_update.enable
-          # button_create.enable
-          # button_edit.enable
-          # button_delete.disable
-
-
+        button_edit = button('Редактировать') {
+          on_clicked do
+            edit_row
+          end
         }
+        button_update = button('Обновить') {
+          on_clicked do
+            update_row
+          end
+        }
+        button_create = button('Создать') {
+          on_clicked do
+            create_row
+          end
+        }
+        button_delete = button('Удалить') {
+          on_clicked do
+            delete_row
+          end
+        }
+
+        # button_update.enable
+        # button_create.enable
+        # button_edit.enable
+        # button_delete.disable
+
+
+      }
     }
+  }
 
-    on_create
-    root_container
+  # def edit_row
+  #   row = @table.selected_row
+  #   if row
+  #     @table.editable = true
+  #     @actions.children[0].disable
+  #     @actions.children[1].enable
+  #   end
+  # end
 
+  def sort_column(col_index)
+    rows = @table.cell_rows
+
+    # Сортировка строк в выбранном столбце
+    sorted_rows = rows.sort_by { |row|
+      if row[col_index]!=nil
+        row[col_index]
+      else
+        row[col_index]=''
+        row[col_index]
+      end}
+
+    # Отображение сортировки в интерфейсе
+    @table.cell_rows = sorted_rows
   end
 end
